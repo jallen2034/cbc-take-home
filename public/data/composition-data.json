@@ -1,0 +1,222 @@
+[
+    {
+        "jobId": 523,
+        "jobDescription": "HOT WATER RESERVOIR INSTALLATION",
+        "jobUnit": "UN",
+        "jobType": "INPUT",
+        "itemId": 109,
+        "itemDescription": "TEFLON TAPE",
+        "itemUnit": "UN",
+        "jobItemQuantity": "0.0190000",
+        "pricePerUnit": "9.40"
+    },
+    {
+        "jobId": 523,
+        "jobDescription": "HOT WATER RESERVOIR INSTALLATION",
+        "jobUnit": "UN",
+        "jobType": "INPUT",
+        "itemId": 108,
+        "itemDescription": "STAINLESS STEEL WATER RESERVOIR",
+        "itemUnit": "UN",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "100.41"
+    },
+    {
+        "jobId": 523,
+        "jobDescription": "HOT WATER RESERVOIR INSTALLATION",
+        "jobUnit": "UN",
+        "jobType": "INPUT",
+        "itemId": 112,
+        "itemDescription": "HYDRAULIC PUMP",
+        "itemUnit": "H",
+        "jobItemQuantity": "0.7890000",
+        "pricePerUnit": "15.19"
+    },
+    {
+        "jobId": 523,
+        "jobDescription": "HOT WATER RESERVOIR INSTALLATION",
+        "jobUnit": "UN",
+        "jobType": "INPUT",
+        "itemId": 119,
+        "itemDescription": "HYDRAULIC FIREMAN",
+        "itemUnit": "H",
+        "jobItemQuantity": "0.7890000",
+        "pricePerUnit": "20.33"
+    },
+    {
+        "jobId": 537,
+        "jobDescription": "WATERPROOFING WALLS",
+        "jobUnit": "M2",
+        "jobType": "INPUT",
+        "itemId": 138,
+        "itemDescription": "WATERPROOFING ADDITIVE",
+        "itemUnit": "KG",
+        "jobItemQuantity": "0.3870000",
+        "pricePerUnit": "4.44"
+    },
+    {
+        "jobId": 537,
+        "jobDescription": "WATERPROOFING WALLS",
+        "jobUnit": "M2",
+        "jobType": "JOB",
+        "itemId": 283,
+        "itemDescription": "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+        "itemUnit": "M3",
+        "jobItemQuantity": "0.0250000",
+        "pricePerUnit": ""
+    },
+    {
+        "jobId": 537,
+        "jobDescription": "WATERPROOFING WALLS",
+        "jobUnit": "M2",
+        "jobType": "INPUT",
+        "itemId": 158,
+        "itemDescription": "MASON LABOUR",
+        "itemUnit": "H",
+        "jobItemQuantity": "0.8670000",
+        "pricePerUnit": "19.82"
+    },
+    {
+        "jobId": 537,
+        "jobDescription": "WATERPROOFING WALLS",
+        "jobUnit": "M2",
+        "jobType": "INPUT",
+        "itemId": 316,
+        "itemDescription": "GENERAL LABOUR",
+        "itemUnit": "H",
+        "jobItemQuantity": "0.1760000",
+        "pricePerUnit": "14.78"
+    },
+    {
+        "jobId": 283,
+        "jobDescription": "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+        "jobUnit": "M3",
+        "jobType": "INPUT",
+        "itemId": 370,
+        "itemDescription": "MEDIUM SAND",
+        "itemUnit": "M3",
+        "jobItemQuantity": "1.3000000",
+        "pricePerUnit": "67.50"
+    },
+    {
+        "jobId": 283,
+        "jobDescription": "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+        "jobUnit": "M3",
+        "jobType": "INPUT",
+        "itemId": 228,
+        "itemDescription": "HYDRATED LIME",
+        "itemUnit": "KG",
+        "jobItemQuantity": "130.4900000",
+        "pricePerUnit": "0.47"
+    },
+    {
+        "jobId": 283,
+        "jobDescription": "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+        "jobUnit": "M3",
+        "jobType": "INPUT",
+        "itemId": 137,
+        "itemDescription": "PORTLAND COMPOUND CEMENT",
+        "itemUnit": "KG",
+        "jobItemQuantity": "250.1100000",
+        "pricePerUnit": "0.49"
+    },
+    {
+        "jobId": 283,
+        "jobDescription": "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+        "jobUnit": "M3",
+        "jobType": "INPUT",
+        "itemId": 377,
+        "itemDescription": "STATIONARY CONCRETE OPERATOR",
+        "itemUnit": "H",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "16.00"
+    },
+    {
+        "jobId": 283,
+        "jobDescription": "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+        "jobUnit": "M3",
+        "jobType": "JOB",
+        "itemId": 830,
+        "itemDescription": "CONCRETE MIXING OF 400 L - ACTIVE",
+        "itemUnit": "H/P",
+        "jobItemQuantity": "1.1900000",
+        "pricePerUnit": ""
+    },
+    {
+        "jobId": 283,
+        "jobDescription": "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+        "jobUnit": "M3",
+        "jobType": "JOB",
+        "itemId": 831,
+        "itemDescription": "CONCRETE MIXING OF 400 L - IDLE",
+        "itemUnit": "H/I",
+        "jobItemQuantity": "3.9100000",
+        "pricePerUnit": ""
+    },
+    {
+        "jobId": 830,
+        "jobDescription": "CONCRETE MIXING OF 400 L - ACTIVE",
+        "jobUnit": "H/P",
+        "jobType": "INPUT",
+        "itemId": 826,
+        "itemDescription": "CONCRETE MIXING OF 400 L - DEPRECIATION",
+        "itemUnit": "H",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "0.18"
+    },
+    {
+        "jobId": 830,
+        "jobDescription": "CONCRETE MIXING OF 400 L - ACTIVE",
+        "jobUnit": "H/P",
+        "jobType": "INPUT",
+        "itemId": 827,
+        "itemDescription": "CONCRETE MIXING OF 400 L - INTEREST",
+        "itemUnit": "H",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "0.04"
+    },
+    {
+        "jobId": 830,
+        "jobDescription": "CONCRETE MIXING OF 400 L - ACTIVE",
+        "jobUnit": "H/P",
+        "jobType": "INPUT",
+        "itemId": 828,
+        "itemDescription": "CONCRETE MIXING OF 400 L - MAINTENANCE",
+        "itemUnit": "H",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "0.17"
+    },
+    {
+        "jobId": 830,
+        "jobDescription": "CONCRETE MIXING OF 400 L - ACTIVE",
+        "jobUnit": "H/P",
+        "jobType": "INPUT",
+        "itemId": 829,
+        "itemDescription": "CONCRETE MIXING OF 400 L - MATERIALS",
+        "itemUnit": "H",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "0.86"
+    },
+    {
+        "jobId": 831,
+        "jobDescription": "CONCRETE MIXING OF 400 L - IDLE",
+        "jobUnit": "H/I",
+        "jobType": "INPUT",
+        "itemId": 826,
+        "itemDescription": "CONCRETE MIXING OF 400 L - DEPRECIATION",
+        "itemUnit": "H",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "0.18"
+    },
+    {
+        "jobId": 831,
+        "jobDescription": "CONCRETE MIXING OF 400 L - IDLE",
+        "jobUnit": "H/I",
+        "jobType": "INPUT",
+        "itemId": 827,
+        "itemDescription": "CONCRETE MIXING OF 400 L - INTEREST",
+        "itemUnit": "H",
+        "jobItemQuantity": "1.0000000",
+        "pricePerUnit": "0.04"
+    }
+]
