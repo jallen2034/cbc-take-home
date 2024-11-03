@@ -1,15 +1,10 @@
-import { JobHierarchy, JobItem } from "@/app/types";
+import { JobItem, NestedJob } from "@/app/types";
 
-/* TODO: Implement a function to calculate the total cost for a job, including:
- - The job's own cost (if applicable).
- - Costs of all direct inputs and recursively nested child jobs.
- - Handle cases with missing or null costs and avoid double-counting. */
-const calculateTotalCostForItemsAssociatedWithJob = () => {};
-
+// Builds a hierarchical structure of jobs based on a specified job ID.
 const buildTotalJobHierarchy = (
   jobData: JobItem[],
   jobIdToFind: number,
-): any => {
+): NestedJob | null => {
   // Locate the primary job by matching the specified jobId, assuming it must exist in jobData.
   const currentJob = jobData.find((job: JobItem) => {
     const { jobId }: JobItem = job;
@@ -27,7 +22,7 @@ const buildTotalJobHierarchy = (
   
   // Find all direct child jobs by checking if they reference this jobId and are of type "JOB".
   const listOfChildJobsForThisJob = jobData.filter((job: JobItem) => {
-    const { jobType, jobId }: JobItem = job; // Assuming 'parentId' associates child jobs with a parent job.
+    const { jobType, jobId }: JobItem = job;
     return jobIdToFind === jobId && jobType === "JOB";
   });
   
@@ -58,4 +53,4 @@ const buildTotalJobHierarchy = (
   };
 };
 
-export { calculateTotalCostForItemsAssociatedWithJob, buildTotalJobHierarchy };
+export { buildTotalJobHierarchy };

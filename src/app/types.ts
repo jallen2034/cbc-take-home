@@ -10,6 +10,13 @@ export interface JobItem {
   pricePerUnit: string;
 }
 
+export interface NestedJob {
+  jobTitle: string;
+  jobId: number;
+  inputsForThisJob: JobItem[];
+  nestedChildJobsForThisOne?: NestedJob[] | {};
+}
+
 export interface JobHierarchy {
   jobTitle: string;
   jobId: number;
@@ -17,3 +24,5 @@ export interface JobHierarchy {
   childJobsForThisJob: JobHierarchy[];
   totalCost?: number;
 }
+
+export type TestItemArr = (NestedJob | null)[];
