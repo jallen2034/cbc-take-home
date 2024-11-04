@@ -11,6 +11,7 @@ import {
   testItemConcreteMixingOf400LIdle,
   testItemHotWaterReservoirInstallation,
   testItemMortarTraceCementLimeAndMediumSand,
+  testItemWaterproofingAdditive,
 } from "@/app/__test__/job-data-collector-helpers/test-data-module";
 
 describe("sumPricesForIndividualJobInput", (): void => {
@@ -71,6 +72,11 @@ describe("calculateIndividualTestItem", (): void => {
     );
     expect(totalValForThisItem).toEqual(1.25);
   });
-  
-  
+
+  it("should correctly return the correct calculated value of the work required for a WATERPROOF WALLS job to be $28.7530475", (): void => {
+    const totalValForThisItem: number = calculateIndividualTestItem(
+      testItemWaterproofingAdditive,
+    );
+    expect(totalValForThisItem).toEqual(28.7530475);
+  });
 });
