@@ -1,6 +1,7 @@
 import { JobItem, TestItem } from "@/app/types";
 import { JobCostSummary } from "@/app/client-components/job-data-container/types";
 
+// Mock of the testItemArr we use as test input against calculateTotalCostForJob();
 const testItemArr: TestItem[] = [
   {
     jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
@@ -518,7 +519,8 @@ const testItemArr: TestItem[] = [
   },
 ];
 
-const testInputMortarTraceCementLimeAndMediumSand: JobItem[] = [
+// Mocked input test item for mortar trace (cement, lime and medium sand) against sumPricesForIndividualJobInput().
+const testInputMortarTraceCementLimeAndMediumSandSum: JobItem[] = [
   {
     jobId: 283,
     jobDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
@@ -565,7 +567,8 @@ const testInputMortarTraceCementLimeAndMediumSand: JobItem[] = [
   },
 ];
 
-const testInputConcreteMixingOf400LActive: JobItem[] = [
+// Mocked input test item for concrete mixing of 400L - active against sumPricesForIndividualJobInput().
+const testInputConcreteMixingOf400LActiveSum: JobItem[] = [
   {
     jobId: 830,
     jobDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
@@ -612,7 +615,8 @@ const testInputConcreteMixingOf400LActive: JobItem[] = [
   },
 ];
 
-const testInputConcreteMixingOf400LIdle: JobItem[] = [
+// Mocked input test item for concrete mixing of 400L - idle against sumPricesForIndividualJobInput().
+const testInputConcreteMixingOf400LIdleSum: JobItem[] = [
   {
     jobId: 831,
     jobDescription: "CONCRETE MIXING OF 400 L - IDLE",
@@ -637,7 +641,8 @@ const testInputConcreteMixingOf400LIdle: JobItem[] = [
   },
 ];
 
-const testInputWaterproofingWalls: JobItem[] = [
+// Mocked input test item for waterproofing walls against sumPricesForIndividualJobInput().
+const testInputWaterproofingWallsSum: JobItem[] = [
   {
     jobId: 537,
     jobDescription: "WATERPROOFING WALLS",
@@ -673,6 +678,7 @@ const testInputWaterproofingWalls: JobItem[] = [
   },
 ];
 
+// Mocked input test item for mortar trace (cement, lime and medium sand) against calculateIndividualTestItem()..
 const testItemMortarTraceCementLimeAndMediumSand: TestItem = {
   jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
   jobId: 283,
@@ -835,6 +841,7 @@ const testItemMortarTraceCementLimeAndMediumSand: TestItem = {
   ],
 };
 
+// Mocked input test item for hot water reservoir installation against calculateIndividualTestItem()..
 const testItemHotWaterReservoirInstallation: TestItem = {
   jobTitle: "HOT WATER RESERVOIR INSTALLATION",
   jobId: 523,
@@ -889,6 +896,7 @@ const testItemHotWaterReservoirInstallation: TestItem = {
   nestedChildJobsForThisOne: [],
 };
 
+// Mocked input test item for concrete mixing of 400L idle job against calculateIndividualTestItem().
 const testItemConcreteMixingOf400LIdle: TestItem = {
   jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
   jobId: 831,
@@ -921,6 +929,7 @@ const testItemConcreteMixingOf400LIdle: TestItem = {
   nestedChildJobsForThisOne: [],
 };
 
+// Mocked input test item for concrete mixing of 400L active job against calculateIndividualTestItem().
 const testItemConcreteMixingOf400LActive: TestItem = {
   jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
   jobId: 830,
@@ -975,6 +984,7 @@ const testItemConcreteMixingOf400LActive: TestItem = {
   nestedChildJobsForThisOne: [],
 };
 
+// Mocked input test item for waterproofing walls job against calculateIndividualTestItem().
 const testItemWaterproofingAdditive: TestItem = {
   jobTitle: "WATERPROOFING WALLS",
   jobId: 537,
@@ -1192,7 +1202,7 @@ const testItemWaterproofingAdditive: TestItem = {
   ],
 };
 
-// Expected final result of each job and it's total cost.
+// Our expected final result of each job along with its total cost that should be returned from calculateTotalCostForJob().
 const expectedTotalCostJobData: JobCostSummary[] = [
   {
     jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
@@ -1226,17 +1236,16 @@ const expectedTotalCostJobData: JobCostSummary[] = [
   },
 ];
 
-
 export {
-  testInputMortarTraceCementLimeAndMediumSand,
-  testInputConcreteMixingOf400LActive,
-  testInputConcreteMixingOf400LIdle,
-  testInputWaterproofingWalls,
+  testInputMortarTraceCementLimeAndMediumSandSum,
+  testInputConcreteMixingOf400LActiveSum,
+  testInputConcreteMixingOf400LIdleSum,
+  testInputWaterproofingWallsSum,
   testItemMortarTraceCementLimeAndMediumSand,
   testItemHotWaterReservoirInstallation,
   testItemConcreteMixingOf400LIdle,
   testItemConcreteMixingOf400LActive,
   testItemWaterproofingAdditive,
   testItemArr,
-  expectedTotalCostJobData
+  expectedTotalCostJobData,
 };
