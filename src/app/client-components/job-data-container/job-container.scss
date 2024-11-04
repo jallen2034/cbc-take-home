@@ -1,0 +1,19 @@
+.jobDataContainer {
+  margin: 20px; // Add margins to the container
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto; // Center the table and add margin
+}
+
+.th, .td {
+  border: 1px solid #ddd;
+  padding: 12px; // Add padding for better spacing
+  text-align: left;
+}
+
+.th {
+  background-color: black; // Add a background color for the header
+}
