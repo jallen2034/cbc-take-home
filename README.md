@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [
 
 ### Get to know project tech stack
 
-This simple project is a starting point for your take-home test. It is built with the following technologies:
+This project is built with the following technologies:
 
 - [React](https://reactjs.org/), a JavaScript library for building user interfaces
 - [Next.js](https://nextjs.org/), a frontend framework for server-side rendering, easy routing, serverless RESTful API
