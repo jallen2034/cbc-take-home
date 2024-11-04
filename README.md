@@ -130,6 +130,9 @@ Given the scope and intent of this take-home project, I believe these minor disc
 demonstrating the core functionality and logic of the app. While I plan to revisit and resolve these rounding issues in
 the future, I’m prioritizing overall logic and functionality within the time constraints of this project.
 
+Additionally, I included more comments in the code than I would typically have in a production application. This was intentional, 
+as I wanted to clearly demonstrate my thought process and approach for each step, making it easier for the reviewer to understand my implementation during the interview.
+
 ### Screenshot of app running:
 
 ![https://github.com/jallen2034/cbc-take-home/blob/main/public/docs/app-screenshot.png?raw=true](public/docs/app-screenshot.png)
