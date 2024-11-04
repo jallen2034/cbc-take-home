@@ -96,7 +96,7 @@ which facilitates accurate cost calculations and a clear UI representation.
 
 The resulting job hierarchy can be visualized in the following diagram:
 
-![https://github.com/jallen2034/cbc-take-home/blob/main/public/docs/job-hierarchy-diagram.png?raw=true](img.png)
+![https://github.com/jallen2034/cbc-take-home/blob/main/public/docs/job-hierarchy-diagram.png?raw=true](public/docs/job-hierarchy-diagram.png)
 
 This `buildJobHierarchyTree()` function returns an array of hierarchical job structures, which is then passed to the
 main client component, JobDataContainer.
@@ -128,4 +128,4 @@ demonstrating the core functionality and logic of the app. While I plan to revis
 the future, I’m prioritizing overall logic and functionality within the time constraints of this project.
 
 ### Screenshot of app running:
-
+![https://github.com/jallen2034/cbc-take-home/blob/main/public/docs/app-screenshot.png?raw=true](public/docs/app-screenshot.png)
