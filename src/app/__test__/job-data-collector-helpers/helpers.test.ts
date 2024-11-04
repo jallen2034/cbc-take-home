@@ -1,6 +1,6 @@
 import {
   calculateIndividualTestItem,
-  calculateTotalCostForItemsAssociatedWithJob,
+  calculateTotalCostForJob,
   sumPricesForIndividualJobInput,
 } from "@/app/client-components/job-data-container/helpers";
 import {
@@ -88,7 +88,7 @@ describe("calculateIndividualTestItem", (): void => {
 describe("calculateTotalCostForItemsAssociatedWithJob", (): void => {
   it("should return the expected output of correct total costs for all the jobs", (): void => {
     const totalCost: (JobCostSummary | null | undefined)[] =
-      calculateTotalCostForItemsAssociatedWithJob(testItemArr);
+      calculateTotalCostForJob(testItemArr);
     expect(totalCost).toEqual(expectedTotalCostJobData);
   });
 });

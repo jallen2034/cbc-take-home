@@ -1,7 +1,7 @@
 "use client";
 import React, { useMemo } from "react";
 import { TestItem } from "@/app/types";
-import { calculateTotalCostForItemsAssociatedWithJob } from "@/app/client-components/job-data-container/helpers";
+import { calculateTotalCostForJob } from "@/app/client-components/job-data-container/helpers";
 import { JobCostSummary } from "@/app/client-components/job-data-container/types";
 import "./job-container.scss";
 
@@ -10,13 +10,12 @@ interface JobDataContainerProps {
 }
 
 const JobDataContainer: React.FC<JobDataContainerProps> = ({ testItemArr }) => {
-  console.log({ testItemArr });
-  
+  // Calculate and memoize the total cost of jobs when this client-side component mounts or when testItemArr changes.
   const totalCost: (JobCostSummary | null | undefined)[] = useMemo(
-    () => calculateTotalCostForItemsAssociatedWithJob(testItemArr),
+    () => calculateTotalCostForJob(testItemArr),
     [testItemArr],
   );
-  
+
   return (
     <div className="jobDataContainer">
       <h3>Job Cost Summary</h3>
@@ -25,7 +24,7 @@ const JobDataContainer: React.FC<JobDataContainerProps> = ({ testItemArr }) => {
           <tr className="tr">
             <th className="th">ID</th>
             <th className="th">Description</th>
-            <th className="th">Unit</th> {/* New column for Unit */}
+            <th className="th">Unit</th>
             <th className="th">Price</th>
           </tr>
         </thead>

@@ -1,75 +1,81 @@
 import { JobItem, NestedJob } from "@/app/types";
 
-// Builds a hierarchical structure of jobs based on a specified job ID.
-const buildTotalJobHierarchy = (
+/* Helper function to retrieve the unit of measurement for a job based on its jobId.
+ * It checks if there is a job in the provided jobData with the specified jobId
+ * and returns its jobUnit if found, or the defaultUnit if not. */
+const getJobUnit = (
+  jobData: JobItem[],
+  jobIdToFind: number,
+  defaultUnit: string,
+): string => {
+  const foundItemWithJobType: JobItem | undefined = jobData.find(
+    ({ jobId, jobType }: JobItem) => jobId === jobIdToFind && jobType === "JOB",
+  );
+
+  // Use the jobUnit from foundItemWithJobType if it's available, otherwise use the provided defaultUnit.
+  return foundItemWithJobType ? foundItemWithJobType.jobUnit : defaultUnit;
+};
+
+// Helper function to recursively builds a hierarchical tree-like structure of jobs based on a specified job ID.
+const buildJobHierarchyTree = (
   jobData: JobItem[],
   jobIdToFind: number,
 ): NestedJob | null => {
-  // Locate the primary job by matching the specified jobId, assuming it must exist in jobData.
-  const currentJob: JobItem | undefined = jobData.find((job: JobItem) => {
-    const { jobId }: JobItem = job;
-    return jobId === jobIdToFind;
-  });
-  
-  const foundItemWithJobType: JobItem | undefined = jobData.find((job: JobItem) => {
-    const { jobId, jobType }: JobItem = job;
-    return jobId === jobIdToFind && jobType === "JOB";
-  });
-  
-  // Safety check that the current job is valid.
+  // Gather all items related to this job that are of type "INPUT".
+  const inputs: JobItem[] = jobData.filter(
+    (job) => job.jobId === jobIdToFind && job.jobType === "INPUT",
+  );
+
+  // Find all direct child jobs by checking if they reference this jobId and are of type "JOB".
+  const childJobs: JobItem[] = jobData.filter(
+    (job) => job.jobId === jobIdToFind && job.jobType === "JOB",
+  );
+
+  // Guard clause: If no inputs are found, return null.
+  if (inputs.length === 0) {
+    return null;
+  }
+
+  // Assign currentJob as the first item in inputs as they all share the same jobId.
+  const currentJob: JobItem = inputs[0];
+
+  // Safety check to ensure a job with id can even be found in the jobData JSON.
   if (!currentJob) {
     return null;
   }
-  
-  const { jobDescription, jobId }: JobItem | undefined = currentJob;
-  
-  // Conditionally use itemUnit from currentJob or foundItemWithJobType
-  const itemUnit: string = foundItemWithJobType ? foundItemWithJobType.jobUnit : currentJob.jobUnit;
-  
-  // If no job is found for the specified jobId, return null to indicate no matching hierarchy.
-  if (!currentJob) return null;
-  
-  // Gather all items related to this job that are of type "INPUT". These are considered "inputs" for this job.
-  const inputsForThisJob = jobData.filter((job: JobItem) => {
-    const { jobType, jobId }: JobItem = job;
-    return jobIdToFind === jobId && jobType === "INPUT";
-  });
-  
-  // Find all direct child jobs by checking if they reference this jobId and are of type "JOB".
-  const listOfChildJobsForThisJob = jobData.filter((job: JobItem) => {
-    const { jobType, jobId }: JobItem = job;
-    return jobIdToFind === jobId && jobType === "JOB";
-  });
-  
-  // If no child jobs exist for this job, early return the structure with empty nestedChildJobsForThisOne.
-  if (listOfChildJobsForThisJob.length === 0) {
+
+  // Destructure the description, id and units of measurement from this found job.
+  const { jobDescription, jobId, jobUnit }: JobItem = currentJob;
+
+  // We also want to scan through the jobData JSON and determine if another job exists in it.
+  const itemUnit: string = getJobUnit(jobData, jobIdToFind, jobUnit);
+
+  // If no child jobs exist for this current jobId, return the structure with empty nestedChildJobs.
+  if (childJobs.length === 0) {
     return {
       jobTitle: jobDescription,
       jobId,
       itemUnit,
-      inputsForThisJob,
-      listOfChildJobsForThisJob,
-      nestedChildJobsForThisOne: [] as NestedJob[], // Empty object as no nested child jobs found.
-    }
+      inputsForThisJob: inputs,
+      listOfChildJobsForThisJob: childJobs,
+      nestedChildJobsForThisOne: [] as NestedJob[], // No nested child jobs exist :)
+    };
   }
-  
-  // If we get down here, recursively build the hierarchy for each child job found, gathering each child's nested structure.
-  const nestedChildJobsForThisOne: any[] = listOfChildJobsForThisJob.map(
-    (childJob: JobItem) => {
-      const { itemId }: JobItem = childJob;
-      return buildTotalJobHierarchy(jobData, itemId);
-    },
+
+  // Otherwise, recursively drill down and build out the hierarchy for every child job in the tree we are building.
+  const nestedChildJobsForThisOne: NestedJob[] = childJobs.map(
+    (childJob) => buildJobHierarchyTree(jobData, childJob.itemId) as NestedJob,
   );
-  
-  // Return the final hierarchical structure, including inputs and any nested child jobs.
+
+  // Return the final hierarchical structure, including inputs and nested child jobs.
   return {
     jobTitle: jobDescription,
     jobId,
     itemUnit,
-    inputsForThisJob,
-    listOfChildJobsForThisJob,
+    inputsForThisJob: inputs,
+    listOfChildJobsForThisJob: childJobs,
     nestedChildJobsForThisOne,
   };
 };
 
-export { buildTotalJobHierarchy };
+export { buildJobHierarchyTree };

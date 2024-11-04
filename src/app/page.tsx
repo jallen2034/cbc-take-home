@@ -1,5 +1,5 @@
-import { buildTotalJobHierarchy } from "@/app/helpers/helpers";
-import { JobItem, NestedJob, TestItem } from "@/app/types";
+import { buildJobHierarchyTree } from "@/app/helpers/helpers";
+import { JobItem, NestedJob } from "@/app/types";
 import { jobIdArr } from "../../util/constants";
 import JobDataContainer from "@/app/client-components/job-data-container/job-data-container";
 import "./page.module.css";
@@ -14,12 +14,12 @@ export default async function Home() {
     throw new Error("Failed to fetch data");
   }
 
-  // Parse the json data and display it before we attempt to calculate the job hierarchy later on.
+  // Parse the json data before we attempt to calculate the job hierarchy later on.
   const jobData: JobItem[] = await res.json();
   
   // Generate an array of job hierarchies for each job ID in jobIdArr.
   const testItemArr: (NestedJob | null)[] = jobIdArr.map((jobId: number) =>
-    buildTotalJobHierarchy(jobData, jobId),
+    buildJobHierarchyTree(jobData, jobId),
   );
 
   return (
