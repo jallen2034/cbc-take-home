@@ -21,7 +21,7 @@ This project is built with the following technologies:
 
 ```bash
  git clone git@github.com:jallen2034/cbc-take-home.git
- cd project
+ cd cbc-take-home
 ```
 
 #### 2. Install the dependencies:
