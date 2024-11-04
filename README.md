@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [
+`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### Get to know project tech stack
 
-First, run the development server:
+This simple project is a starting point for your take-home test. It is built with the following technologies:
+
+- [React](https://reactjs.org/), a JavaScript library for building user interfaces
+- [Next.js](https://nextjs.org/), a frontend framework for server-side rendering, easy routing, serverless RESTful API
+
+### Getting started
+
+#### 1. Clone the repository to your local machine:
+
+```bash
+ git clone https://github.com/your-repo-name/project.git
+ cd project
+```
+
+#### 2. Install the dependencies:
+
+```bash
+npm install
+```
+
+### Running the Development Server:
+
+Once everything above is configured, you can start the development server:
+
+### Project Structure
+
+- `src/`: Contains all source files.
+- `components/`: Reusable UI components, including JobDataContainer.
+- `helpers/`: Helper functions for data processing, such as buildJobHierarchyTree and calculateTotalCost.
+- `tests/`: Jest unit test files organized similarly to the main files they test, ensuring modular and targeted testing.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app should now be running, navigate to [`http://localhost:3000/`](http://localhost:3000/) in your browser to explore
+its UI.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Running the Automated Unit Test Suite with Jest:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To run the unit tests using Jest, use the following command in your terminal:
 
-## Learn More
+```bash
+npm test
+```
 
-To learn more about Next.js, take a look at the following resources:
+This will execute all the unit tests in the project. Upon successful execution, you should see an output similar to the
+following:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+> cbc-take-home@0.1.0 test
+> jest
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ PASS  src/app/__test__/app-helpers/helpers.test.ts
+ PASS  src/app/__test__/job-data-collector-helpers/helpers.test.ts
 
-## Deploy on Vercel
+Test Suites: 2 passed, 2 total
+Tests:       15 passed, 15 total
+Snapshots:   0 total
+Time:        3.158 s, estimated 5 s
+Ran all test suites.
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Test Suites: The number of test files that were executed and passed.
+- Tests: The total number of individual test cases that were executed.
+- Time: The total amount of time it took to run the automated test suite.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Technical approach I used to tackle this problem:
+
+For this project, the primary goal was to compute and display the total costs of each job from
+composition-data.json within a user interface. My approach attempts to emphasize clean code organization,
+a modular structure, and good test coverage.
+
+### Understanding the Data Structure
+
+The JSON data provided represents jobs in a nested, hierarchical format where each "job" can contain:
+
+- `INPUT` Type Jobs: These entries represent resources needed for a job, such as materials like "TEFLON TAPE" or
+  equipment like a "HYDRAULIC PUMP".
+- `JOB` Type Jobs: These are sub-jobs or dependencies, representing tasks required to complete a larger job. For
+  example, a job like "WATERPROOFING WALLS" includes multiple subtasks such as Mortar Trace, Concrete Mixing etc.
+
+### Server Side Data Transformation: Building a Hierarchical Structure
+
+To simplify processing, I created a helper function, `buildJobHierarchyTree()`, to convert the JSON data into a more
+structured tree-like format for each individual job. This function takes a parent job ID and recursively finds all
+related child jobs,
+organizing them in a hierarchy. The output is a nested tree-like structure where each job can have multiple levels of
+sub-jobs,
+which facilitates accurate cost calculations and a clear UI representation.
+
+The resulting job hierarchy can be visualized in the following diagram:
+
+![https://github.com/jallen2034/cbc-take-home/blob/main/public/docs/job-hierarchy-diagram.png?raw=true](img.png)
+
+This `buildJobHierarchyTree()` function returns an array of hierarchical job structures, which is then passed to the
+main client component, JobDataContainer.
+
+### Client side Cost Calculation
+
+In the `JobDataContainer` client-side component, I developed a `calculateTotalCostForJob()`, a function to compute the
+total costs of each
+job, including their nested jobs. This function calculates costs by recursively summing up the costs of inputs and
+sub-jobs:
+
+1. **Input Cost Calculation:** `sumPricesForIndividualJobInput()` iterates over all "INPUT" type items for a job,
+   calculating total costs based on pricePerUnit and jobItemQuantity.
+2. **Recursive Cost Calculation for Nested Jobs**: `calculateTotalCost()` iterates through each nested job in the
+   hierarchy, summing costs recursively for each job and its sub-jobs. Using `getJobItemQuantity()` as a helper, it
+   ensures correct quantity-based cost calculations for sub-jobs of type "JOB".
+3. **Output Structure**: The total cost of each job, along with its description and unit, is then used in the UI of the
+   `JobDataContainer` client-side component to be displayed in a table format.
+
+### Minor Bugs and Considerations
+
+I identified a minor discrepancy in the app's total cost calculations for certain jobs. For example, in the provided
+example PDF, the expected output for **HOT WATER RESERVOIR INSTALLATION** is `$128.60`, while my app calculates it as `$
+128.61`. Similarly, for **MORTAR TRACE (CEMENT, LIME, AND MEDIUM SAND)**, the expected output
+is `$289.97`, but my app shows `$289.98`. A difference of one cent in each case.
+
+Given the scope and intent of this take-home project, I believe these minor discrepancies are not critical to
+demonstrating the core functionality and logic of the app. While I plan to revisit and resolve these rounding issues in
+the future, I’m prioritizing overall logic and functionality within the time constraints of this project.
+
+### Screenshot of app running:
+
