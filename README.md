@@ -72,7 +72,7 @@ Ran all test suites.
 ### Technical approach I used to tackle this problem:
 
 For this project, the primary goal was to compute and display the total costs of each job from
-composition-data.json within a user interface. My approach attempts to emphasize clean code organization,
+`composition-data.json` within a user interface. My approach attempts to emphasize clean code organization,
 a modular structure, and good test coverage.
 
 ### Understanding the Data Structure
