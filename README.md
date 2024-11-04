@@ -87,12 +87,14 @@ The JSON data provided represents jobs in a nested, hierarchical format where ea
 
 ### Server Side Data Transformation: Building a Hierarchical Structure
 
-To simplify processing, I created a helper function, `buildJobHierarchyTree()`, to convert the JSON data into a more
-structured tree-like format for each individual job. This function takes a parent job ID and recursively finds all
-related child jobs,
-organizing them in a hierarchy. The output is a nested tree-like structure where each job can have multiple levels of
-sub-jobs,
-which facilitates accurate cost calculations and a clear UI representation.
+To streamline processing, I created a helper function, `buildJobHierarchyTree()`, which transforms the JSON data into a
+structured, tree-like format for each unique job. This function takes a parent job ID and recursively gathers all
+related child jobs, organizing them hierarchically. The result is a nested structure where each job can have multiple
+levels of sub-jobs, enabling accurate cost calculations and a clearer UI representation.
+
+Although alternative approaches probably exist, such as using a more iterative method or directly leveraging the existing JSON
+structure for all unique jobs and dependencies, I found this recursive approach of building individual job hierarchies
+to be the most intuitive for me given the project's scope and requirements.
 
 The resulting job hierarchy can be visualized in the following diagram:
 
@@ -128,4 +130,5 @@ demonstrating the core functionality and logic of the app. While I plan to revis
 the future, I’m prioritizing overall logic and functionality within the time constraints of this project.
 
 ### Screenshot of app running:
+
 ![https://github.com/jallen2034/cbc-take-home/blob/main/public/docs/app-screenshot.png?raw=true](public/docs/app-screenshot.png)
