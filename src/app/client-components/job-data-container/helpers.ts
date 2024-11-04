@@ -3,6 +3,7 @@
  - Costs of all direct inputs and recursively nested child jobs.
  - Handle cases with missing or null costs and avoid double-counting. */
 import { JobItem, NestedJob, TestItem } from "@/app/types";
+import { JobCostSummary } from "@/app/client-components/job-data-container/types";
 
 // Sums the prices of all job inputs.
 const sumPricesForIndividualJobInput = (inputsForThisJob: JobItem[]) => {
@@ -84,7 +85,7 @@ const calculateIndividualTestItem = (testItem: TestItem): number => {
 // Calculates the total costs for an array of test items.
 const calculateTotalCostForItemsAssociatedWithJob = (
   testItemArr: TestItem[],
-) => {
+): (JobCostSummary | null | undefined)[] => {
   return testItemArr.map((testItem: TestItem) => {
     if (testItem) {
       // Guard clause to check if testItem is of type NestedJob and has the required properties
