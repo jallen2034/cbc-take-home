@@ -27,6 +27,10 @@ npm install
 
 Once everything above is configured, you can start the development server:
 
+```bash
+npm run dev
+```
+
 ### Project Structure
 
 - `src/`: Contains all source files.
@@ -34,9 +38,6 @@ Once everything above is configured, you can start the development server:
 - `helpers/`: Helper functions for data processing, such as buildJobHierarchyTree and calculateTotalCost.
 - `tests/`: Jest unit test files organized similarly to the main files they test, ensuring modular and targeted testing.
 
-```bash
-npm run dev
-```
 
 The app should now be running, navigate to [`http://localhost:3000/`](http://localhost:3000/) in your browser to explore
 its UI.
