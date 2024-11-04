@@ -82,7 +82,7 @@ The JSON data provided represents jobs in a nested, hierarchical format where ea
 - `INPUT` **Type Jobs**: These entries represent resources needed for a job, such as materials like "TEFLON TAPE" or
   equipment like a "HYDRAULIC PUMP".
 - `JOB` **Type Jobs**: These are sub-jobs or dependencies, representing tasks required to complete a larger job. For
-  example, a job like "WATERPROOFING WALLS" includes multiple subtasks such as Mortar Trace, Concrete Mixing etc.
+  example, a job like "WATERPROOFING WALLS" includes multiple subtasks such as "Mortar Trace", "Concrete Mixing" etc.
 
 This JSON file can be found under `public/data/composition-data.json` in this project for your reference.
 
