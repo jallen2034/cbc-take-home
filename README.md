@@ -88,10 +88,10 @@ This JSON file can be found under `public/data/composition-data.json` in this pr
 
 ### Server Side Data Transformation: Building a Hierarchical Structure
 
-To optimize data processing, I implemented a helper function, `buildJobHierarchyTree()`, which is executed on the server-side first when the React component at the top of the tree here mounts. 
-This function transforms the JSON data into a structured, tree-like format for each unique job. It accepts a parent job ID as an argument and recursively
-retrieves all associated child jobs, organizing them hierarchically. The resulting nested structure allows each unique job to contain multiple levels of sub-jobs, 
-facilitating accurate cost calculations.
+To optimize data processing, I developed a helper function, `buildJobHierarchyTree()`, which is executed on the server side when the top-level React component mounts. 
+This function transforms the JSON data into a structured, tree-like format for each unique job. By accepting a parent job ID as an argument, it recursively retrieves 
+all associated child jobs and organizes them hierarchically. The resulting nested tree-like structure allows each unique job to encompass multiple levels of sub-jobs, 
+thereby facilitating precise cost calculations.
 
 Although alternative approaches probably exist, such as using a more iterative method or directly leveraging the existing JSON
 structure for all unique jobs and dependencies, I found this recursive approach of building individual job hierarchies
