@@ -84,6 +84,8 @@ The JSON data provided represents jobs in a nested, hierarchical format where ea
 - `JOB` Type Jobs: These are sub-jobs or dependencies, representing tasks required to complete a larger job. For
   example, a job like "WATERPROOFING WALLS" includes multiple subtasks such as Mortar Trace, Concrete Mixing etc.
 
+This JSON file can be found under `public/data/composition-data.json` in this project for your reference.
+
 ### Server Side Data Transformation: Building a Hierarchical Structure
 
 To streamline processing, I created a helper function, `buildJobHierarchyTree()`, which transforms the JSON data into a
