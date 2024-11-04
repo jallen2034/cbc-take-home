@@ -32,7 +32,7 @@ const buildTotalJobHierarchy = (
       jobTitle: currentJob.jobDescription,
       jobId: currentJob.jobId,
       inputsForThisJob,
-      nestedChildJobsForThisOne: {}, // Empty object as no nested child jobs found.
+      nestedChildJobsForThisOne: [] as NestedJob[], // Empty object as no nested child jobs found.
     }
   }
   

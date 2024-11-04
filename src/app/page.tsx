@@ -1,5 +1,5 @@
 import { buildTotalJobHierarchy } from "@/app/helpers/helpers";
-import { JobItem, TestItemArr } from "@/app/types";
+import { JobItem, TestItem } from "@/app/types";
 import { jobIdArr } from "../../util/constants";
 import JobDataContainer from "@/app/client-components/job-data-container/job-data-container";
 import "./page.module.css";
@@ -18,7 +18,7 @@ export default async function Home() {
   const jobData: JobItem[] = await res.json();
   
   // Generate an array of job hierarchies for each job ID in jobIdArr.
-  const testItemArr: TestItemArr = jobIdArr.map((jobId: number) =>
+  const testItemArr: TestItem = jobIdArr.map((jobId: number) =>
     buildTotalJobHierarchy(jobData, jobId),
   );
 

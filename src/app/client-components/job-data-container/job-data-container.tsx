@@ -1,13 +1,21 @@
 "use client";
-import React from "react";
-import { TestItemArr } from "@/app/types"; // Import the type if needed
+import React, { useMemo } from "react";
+import { TestItem } from "@/app/types";
+import { calculateTotalCostForItemsAssociatedWithJob } from "@/app/client-components/job-data-container/helpers"; // Import the type if needed
 
 interface JobDataContainerProps {
-  testItemArr: TestItemArr;
+  testItemArr: TestItem[];
 }
 
 const JobDataContainer: React.FC<JobDataContainerProps> = ({ testItemArr }) => {
   console.log({ testItemArr });
+  
+  const totalCost = useMemo(
+    () => calculateTotalCostForItemsAssociatedWithJob(testItemArr),
+    [testItemArr],
+  );
+  
+  console.log(totalCost);
   
   return (
     <div>
