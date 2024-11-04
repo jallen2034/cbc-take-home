@@ -5,6 +5,7 @@ const testItemArr: TestItem[] = [
   {
     jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
     jobId: 283,
+    itemUnit: "M3",
     inputsForThisJob: [
       {
         jobId: 283,
@@ -78,6 +79,7 @@ const testItemArr: TestItem[] = [
     nestedChildJobsForThisOne: [
       {
         jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
+        itemUnit: "H",
         jobId: 830,
         inputsForThisJob: [
           {
@@ -131,6 +133,7 @@ const testItemArr: TestItem[] = [
       {
         jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
         jobId: 831,
+        itemUnit: "H",
         inputsForThisJob: [
           {
             jobId: 831,
@@ -163,6 +166,7 @@ const testItemArr: TestItem[] = [
   {
     jobTitle: "WATERPROOFING WALLS",
     jobId: 537,
+    itemUnit: "KG",
     inputsForThisJob: [
       {
         jobId: 537,
@@ -215,6 +219,7 @@ const testItemArr: TestItem[] = [
       {
         jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
         jobId: 283,
+        itemUnit: "H",
         inputsForThisJob: [
           {
             jobId: 283,
@@ -289,6 +294,7 @@ const testItemArr: TestItem[] = [
           {
             jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
             jobId: 830,
+            itemUnit: "H",
             inputsForThisJob: [
               {
                 jobId: 830,
@@ -341,6 +347,7 @@ const testItemArr: TestItem[] = [
           {
             jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
             jobId: 831,
+            itemUnit: "H",
             inputsForThisJob: [
               {
                 jobId: 831,
@@ -375,6 +382,7 @@ const testItemArr: TestItem[] = [
   {
     jobTitle: "HOT WATER RESERVOIR INSTALLATION",
     jobId: 523,
+    itemUnit: "UN",
     inputsForThisJob: [
       {
         jobId: 523,
@@ -427,6 +435,7 @@ const testItemArr: TestItem[] = [
   {
     jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
     jobId: 831,
+    itemUnit: "H",
     inputsForThisJob: [
       {
         jobId: 831,
@@ -457,6 +466,7 @@ const testItemArr: TestItem[] = [
   {
     jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
     jobId: 830,
+    itemUnit: "H",
     inputsForThisJob: [
       {
         jobId: 830,
@@ -666,6 +676,7 @@ const testInputWaterproofingWalls: JobItem[] = [
 const testItemMortarTraceCementLimeAndMediumSand: TestItem = {
   jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
   jobId: 283,
+  itemUnit: "M3",
   listOfChildJobsForThisJob: [
     {
       jobId: 283,
@@ -741,6 +752,7 @@ const testItemMortarTraceCementLimeAndMediumSand: TestItem = {
       jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
       jobId: 830,
       listOfChildJobsForThisJob: [],
+      itemUnit: "H",
       inputsForThisJob: [
         {
           jobId: 830,
@@ -792,6 +804,7 @@ const testItemMortarTraceCementLimeAndMediumSand: TestItem = {
     {
       jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
       jobId: 831,
+      itemUnit: "H/P",
       listOfChildJobsForThisJob: [],
       inputsForThisJob: [
         {
@@ -826,6 +839,7 @@ const testItemHotWaterReservoirInstallation: TestItem = {
   jobTitle: "HOT WATER RESERVOIR INSTALLATION",
   jobId: 523,
   listOfChildJobsForThisJob: [],
+  itemUnit: "UN",
   inputsForThisJob: [
     {
       jobId: 523,
@@ -879,6 +893,7 @@ const testItemConcreteMixingOf400LIdle: TestItem = {
   jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
   jobId: 831,
   listOfChildJobsForThisJob: [],
+  itemUnit: "H",
   inputsForThisJob: [
     {
       jobId: 831,
@@ -910,6 +925,7 @@ const testItemConcreteMixingOf400LActive: TestItem = {
   jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
   jobId: 830,
   listOfChildJobsForThisJob: [],
+  itemUnit: "H",
   inputsForThisJob: [
     {
       jobId: 830,
@@ -962,6 +978,7 @@ const testItemConcreteMixingOf400LActive: TestItem = {
 const testItemWaterproofingAdditive: TestItem = {
   jobTitle: "WATERPROOFING WALLS",
   jobId: 537,
+  itemUnit: "KG",
   inputsForThisJob: [
     {
       jobId: 537,
@@ -1014,6 +1031,7 @@ const testItemWaterproofingAdditive: TestItem = {
     {
       jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
       jobId: 283,
+      itemUnit: "M3",
       inputsForThisJob: [
         {
           jobId: 283,
@@ -1088,6 +1106,7 @@ const testItemWaterproofingAdditive: TestItem = {
         {
           jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
           jobId: 830,
+          itemUnit: "H",
           inputsForThisJob: [
             {
               jobId: 830,
@@ -1139,6 +1158,7 @@ const testItemWaterproofingAdditive: TestItem = {
         },
         {
           jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
+          itemUnit: "H",
           jobId: 831,
           inputsForThisJob: [
             {
@@ -1177,24 +1197,35 @@ const expectedTotalCostJobData: JobCostSummary[] = [
   {
     jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
     totalValForThisItemRounded: 289.98,
+    jobId: 283,
+    itemUnit: "M3",
   },
   {
     jobTitle: "WATERPROOFING WALLS",
     totalValForThisItemRounded: 28.75,
+    jobId: 537,
+    itemUnit: "KG",
   },
   {
     jobTitle: "HOT WATER RESERVOIR INSTALLATION",
     totalValForThisItemRounded: 128.61,
+    jobId: 523,
+    itemUnit: "UN",
   },
   {
     jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
     totalValForThisItemRounded: 0.22,
+    jobId: 831,
+    itemUnit: "H",
   },
   {
     jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
     totalValForThisItemRounded: 1.25,
+    jobId: 830,
+    itemUnit: "H",
   },
 ];
+
 
 export {
   testInputMortarTraceCementLimeAndMediumSand,

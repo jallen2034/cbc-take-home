@@ -13,6 +13,7 @@ export interface JobItem {
 export interface NestedJob {
   jobTitle: string;
   jobId: number;
+  itemUnit: string,
   inputsForThisJob: JobItem[];
   listOfChildJobsForThisJob: JobItem[];
   nestedChildJobsForThisOne?: NestedJob[];

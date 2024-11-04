@@ -93,10 +93,10 @@ const calculateTotalCostForItemsAssociatedWithJob = (
         return;
       }
 
-      const { jobTitle }: NestedJob = testItem;
+      const { jobTitle, jobId, itemUnit }: NestedJob = testItem;
       const totalValForThisItem: number = calculateIndividualTestItem(testItem);
       const totalValForThisItemRounded: number = Math.round(totalValForThisItem * 100) / 100;
-      return { jobTitle, totalValForThisItemRounded };
+      return { jobTitle, totalValForThisItemRounded, jobId, itemUnit };
     }
     return null;
   });

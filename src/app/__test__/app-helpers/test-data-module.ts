@@ -228,6 +228,7 @@ const concreteMixingJobActiveJson: NestedJob = {
   jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
   jobId: 830,
   listOfChildJobsForThisJob: [],
+  itemUnit: "H/P",
   inputsForThisJob: [
     {
       jobId: 830,
@@ -281,6 +282,7 @@ const concreteMixingJobIdleJsonIdle: NestedJob = {
   jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
   jobId: 831,
   listOfChildJobsForThisJob: [],
+  itemUnit: "H",
   inputsForThisJob: [
     {
       jobId: 831,
@@ -312,30 +314,7 @@ const concreteMixingJobIdleJsonIdle: NestedJob = {
 const mortarTraceJobJson: NestedJob = {
   jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
   jobId: 283,
-  listOfChildJobsForThisJob: [
-    {
-      jobId: 283,
-      jobDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
-      jobUnit: "M3",
-      jobType: "JOB",
-      itemId: 830,
-      itemDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
-      itemUnit: "H/P",
-      jobItemQuantity: "1.1900000",
-      pricePerUnit: "",
-    },
-    {
-      jobId: 283,
-      jobDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
-      jobUnit: "M3",
-      jobType: "JOB",
-      itemId: 831,
-      itemDescription: "CONCRETE MIXING OF 400 L - IDLE",
-      itemUnit: "H/I",
-      jobItemQuantity: "3.9100000",
-      pricePerUnit: "",
-    },
-  ],
+  itemUnit: "M3",
   inputsForThisJob: [
     {
       jobId: 283,
@@ -382,15 +361,122 @@ const mortarTraceJobJson: NestedJob = {
       pricePerUnit: "16.00",
     },
   ],
+  listOfChildJobsForThisJob: [
+    {
+      jobId: 283,
+      jobDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+      jobUnit: "M3",
+      jobType: "JOB",
+      itemId: 830,
+      itemDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
+      itemUnit: "H/P",
+      jobItemQuantity: "1.1900000",
+      pricePerUnit: "",
+    },
+    {
+      jobId: 283,
+      jobDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+      jobUnit: "M3",
+      jobType: "JOB",
+      itemId: 831,
+      itemDescription: "CONCRETE MIXING OF 400 L - IDLE",
+      itemUnit: "H/I",
+      jobItemQuantity: "3.9100000",
+      pricePerUnit: "",
+    },
+  ],
   nestedChildJobsForThisOne: [
-    concreteMixingJobActiveJson,
-    concreteMixingJobIdleJsonIdle,
+    {
+      jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
+      jobId: 830,
+      itemUnit: "H/P",
+      inputsForThisJob: [
+        {
+          jobId: 830,
+          jobDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
+          jobUnit: "H/P",
+          jobType: "INPUT",
+          itemId: 826,
+          itemDescription: "CONCRETE MIXING OF 400 L - DEPRECIATION",
+          itemUnit: "H",
+          jobItemQuantity: "1.0000000",
+          pricePerUnit: "0.18",
+        },
+        {
+          jobId: 830,
+          jobDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
+          jobUnit: "H/P",
+          jobType: "INPUT",
+          itemId: 827,
+          itemDescription: "CONCRETE MIXING OF 400 L - INTEREST",
+          itemUnit: "H",
+          jobItemQuantity: "1.0000000",
+          pricePerUnit: "0.04",
+        },
+        {
+          jobId: 830,
+          jobDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
+          jobUnit: "H/P",
+          jobType: "INPUT",
+          itemId: 828,
+          itemDescription: "CONCRETE MIXING OF 400 L - MAINTENANCE",
+          itemUnit: "H",
+          jobItemQuantity: "1.0000000",
+          pricePerUnit: "0.17",
+        },
+        {
+          jobId: 830,
+          jobDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
+          jobUnit: "H/P",
+          jobType: "INPUT",
+          itemId: 829,
+          itemDescription: "CONCRETE MIXING OF 400 L - MATERIALS",
+          itemUnit: "H",
+          jobItemQuantity: "1.0000000",
+          pricePerUnit: "0.86",
+        },
+      ],
+      listOfChildJobsForThisJob: [],
+      nestedChildJobsForThisOne: [],
+    },
+    {
+      jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
+      jobId: 831,
+      itemUnit: "H/I",
+      inputsForThisJob: [
+        {
+          jobId: 831,
+          jobDescription: "CONCRETE MIXING OF 400 L - IDLE",
+          jobUnit: "H/I",
+          jobType: "INPUT",
+          itemId: 826,
+          itemDescription: "CONCRETE MIXING OF 400 L - DEPRECIATION",
+          itemUnit: "H",
+          jobItemQuantity: "1.0000000",
+          pricePerUnit: "0.18",
+        },
+        {
+          jobId: 831,
+          jobDescription: "CONCRETE MIXING OF 400 L - IDLE",
+          jobUnit: "H/I",
+          jobType: "INPUT",
+          itemId: 827,
+          itemDescription: "CONCRETE MIXING OF 400 L - INTEREST",
+          itemUnit: "H",
+          jobItemQuantity: "1.0000000",
+          pricePerUnit: "0.04",
+        },
+      ],
+      listOfChildJobsForThisJob: [],
+      nestedChildJobsForThisOne: [],
+    },
   ],
 };
 
 const expectedResultWaterproofingWallsJob: NestedJob = {
   jobTitle: "WATERPROOFING WALLS",
   jobId: 537,
+  itemUnit: "M2",
   listOfChildJobsForThisJob: [
     {
       jobId: 537,
@@ -446,6 +532,7 @@ const expectedResultHotWaterReservoirInstallationJob: NestedJob = {
   jobTitle: "HOT WATER RESERVOIR INSTALLATION",
   jobId: 523,
   listOfChildJobsForThisJob: [],
+  itemUnit: "UN",
   inputsForThisJob: [
     {
       jobId: 523,
@@ -499,6 +586,7 @@ const expectedResultConcreteMixingOf400LIdleJob: NestedJob = {
   jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
   jobId: 831,
   listOfChildJobsForThisJob: [],
+  itemUnit: "H/I",
   inputsForThisJob: [
     {
       jobId: 831,
