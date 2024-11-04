@@ -1,4 +1,4 @@
-import { buildTotalJobHierarchy } from "@/app/helpers/helpers";
+import { buildJobHierarchyTree } from "@/app/helpers/helpers";
 import {
   expectedResultConcreteMixingOf400LActiveJob,
   expectedResultConcreteMixingOf400LIdleJob,
@@ -18,7 +18,7 @@ import { NestedJob } from "@/app/types";
 
 describe("buildTotalJobHierarchy", (): void => {
   it("returns the expected payload when building a job hierarchy object for a Mortar Trace Job", (): void => {
-    const result: NestedJob | null = buildTotalJobHierarchy(
+    const result: NestedJob | null = buildJobHierarchyTree(
       testJobDataInput,
       MORTAR_TRACE_JOB_ID,
     );
@@ -26,7 +26,7 @@ describe("buildTotalJobHierarchy", (): void => {
   });
 
   it("returns the expected payload when building a job hierarchy object for a Waterproofing Walls Job", (): void => {
-    const result: NestedJob | null = buildTotalJobHierarchy(
+    const result: NestedJob | null = buildJobHierarchyTree(
       testJobDataInput,
       WATERPROOFING_WALLS_JOB_ID,
     );
@@ -34,7 +34,7 @@ describe("buildTotalJobHierarchy", (): void => {
   });
 
   it("returns the expected payload when building a job hierarchy object for a hot water reservoir installation Job", (): void => {
-    const result: NestedJob | null = buildTotalJobHierarchy(
+    const result: NestedJob | null = buildJobHierarchyTree(
       testJobDataInput,
       HOT_WATER_RESERVOIR_INSTALLATION_JOB_ID,
     );
@@ -42,7 +42,7 @@ describe("buildTotalJobHierarchy", (): void => {
   });
 
   it("returns the expected payload when building a job hierarchy object for a concrete mixing idle Job", (): void => {
-    const result: NestedJob | null = buildTotalJobHierarchy(
+    const result: NestedJob | null = buildJobHierarchyTree(
       testJobDataInput,
       CONCRETE_MIXING_OF_400L_IDLE_JOB_ID,
     );
@@ -50,7 +50,7 @@ describe("buildTotalJobHierarchy", (): void => {
   });
 
   it("returns the expected payload when building a job hierarchy object for a concrete mixing active Job", (): void => {
-    const result: NestedJob | null = buildTotalJobHierarchy(
+    const result: NestedJob | null = buildJobHierarchyTree(
       testJobDataInput,
       CONCRETE_MIXING_OF_400L_ACTIVE_JOB_ID,
     );

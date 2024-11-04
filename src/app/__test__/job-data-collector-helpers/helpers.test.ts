@@ -1,14 +1,14 @@
 import {
   calculateIndividualTestItem,
-  calculateTotalCostForItemsAssociatedWithJob,
+  calculateTotalCostForJob,
   sumPricesForIndividualJobInput,
 } from "@/app/client-components/job-data-container/helpers";
 import {
   expectedTotalCostJobData,
-  testInputConcreteMixingOf400LActive,
-  testInputConcreteMixingOf400LIdle,
-  testInputMortarTraceCementLimeAndMediumSand,
-  testInputWaterproofingWalls,
+  testInputConcreteMixingOf400LActiveSum,
+  testInputConcreteMixingOf400LIdleSum,
+  testInputMortarTraceCementLimeAndMediumSandSum,
+  testInputWaterproofingWallsSum,
   testItemArr,
   testItemConcreteMixingOf400LActive,
   testItemConcreteMixingOf400LIdle,
@@ -21,28 +21,28 @@ import { JobCostSummary } from "@/app/client-components/job-data-container/types
 describe("sumPricesForIndividualJobInput", (): void => {
   it("should correctly sum of $287.63419999999996 with the inputs for a MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND) input ", (): void => {
     const talliedSumOfInputsForThisJob = sumPricesForIndividualJobInput(
-      testInputMortarTraceCementLimeAndMediumSand,
+      testInputMortarTraceCementLimeAndMediumSandSum,
     );
     expect(talliedSumOfInputsForThisJob).toEqual(287.63419999999996);
   });
 
   it("should correctly sum of $1.25 with the inputs for a CONCRETE MIXING OF 400 L - ACTIVE input ", (): void => {
     const talliedSumOfInputsForThisJob = sumPricesForIndividualJobInput(
-      testInputConcreteMixingOf400LActive,
+      testInputConcreteMixingOf400LActiveSum,
     );
     expect(talliedSumOfInputsForThisJob).toEqual(1.25);
   });
 
   it("should correctly sum of $0.22 with the inputs for a CONCRETE MIXING OF 400 L - IDLE input ", (): void => {
     const talliedSumOfInputsForThisJob = sumPricesForIndividualJobInput(
-      testInputConcreteMixingOf400LIdle,
+      testInputConcreteMixingOf400LIdleSum,
     );
     expect(talliedSumOfInputsForThisJob).toEqual(0.22);
   });
 
   it("should correctly sum of $21.5035 with the inputs for a WATERPROOFING WALLS input ", (): void => {
     const talliedSumOfInputsForThisJob = sumPricesForIndividualJobInput(
-      testInputWaterproofingWalls,
+      testInputWaterproofingWallsSum,
     );
     expect(talliedSumOfInputsForThisJob).toEqual(21.5035);
   });
@@ -88,7 +88,7 @@ describe("calculateIndividualTestItem", (): void => {
 describe("calculateTotalCostForItemsAssociatedWithJob", (): void => {
   it("should return the expected output of correct total costs for all the jobs", (): void => {
     const totalCost: (JobCostSummary | null | undefined)[] =
-      calculateTotalCostForItemsAssociatedWithJob(testItemArr);
+      calculateTotalCostForJob(testItemArr);
     expect(totalCost).toEqual(expectedTotalCostJobData);
   });
 });
