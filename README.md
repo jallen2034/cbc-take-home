@@ -15,9 +15,6 @@ This simple project is a starting point for your take-home test. It is built wit
 - `helpers/`: Helper functions for data processing, such as buildJobHierarchyTree and calculateTotalCost.
 - `tests/`: Jest unit test files organized similarly to the main files they test, ensuring modular and targeted testing.
 
-The app should now be running, navigate to [`http://localhost:3000/`](http://localhost:3000/) in your browser to explore
-its UI.
-
 ### Getting started
 
 #### 1. Clone the repository to your local machine:
@@ -40,6 +37,8 @@ Once everything above is configured, you can start the development server:
 ```bash
 npm run dev
 ```
+The app should now be running, navigate to [`http://localhost:3000/`](http://localhost:3000/) in your browser to explore
+its UI.
 
 ### Running the Automated Unit Test Suite with Jest:
 
