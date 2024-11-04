@@ -20,7 +20,7 @@ This project is built with the following technologies:
 #### 1. Clone the repository to your local machine:
 
 ```bash
- git clone https://github.com/your-repo-name/project.git
+ git clone git@github.com:jallen2034/cbc-take-home.git
  cd project
 ```
 
