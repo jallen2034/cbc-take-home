@@ -6,10 +6,25 @@ const buildTotalJobHierarchy = (
   jobIdToFind: number,
 ): NestedJob | null => {
   // Locate the primary job by matching the specified jobId, assuming it must exist in jobData.
-  const currentJob = jobData.find((job: JobItem) => {
+  const currentJob: JobItem | undefined = jobData.find((job: JobItem) => {
     const { jobId }: JobItem = job;
     return jobId === jobIdToFind;
   });
+  
+  const foundItemWithJobType: JobItem | undefined = jobData.find((job: JobItem) => {
+    const { jobId, jobType }: JobItem = job;
+    return jobId === jobIdToFind && jobType === "JOB";
+  });
+  
+  // Safety check that the current job is valid.
+  if (!currentJob) {
+    return null;
+  }
+  
+  const { jobDescription, jobId }: JobItem | undefined = currentJob;
+  
+  // Conditionally use itemUnit from currentJob or foundItemWithJobType
+  const itemUnit: string = foundItemWithJobType ? foundItemWithJobType.jobUnit : currentJob.jobUnit;
   
   // If no job is found for the specified jobId, return null to indicate no matching hierarchy.
   if (!currentJob) return null;
@@ -29,10 +44,12 @@ const buildTotalJobHierarchy = (
   // If no child jobs exist for this job, early return the structure with empty nestedChildJobsForThisOne.
   if (listOfChildJobsForThisJob.length === 0) {
     return {
-      jobTitle: currentJob.jobDescription,
-      jobId: currentJob.jobId,
+      jobTitle: jobDescription,
+      jobId,
+      itemUnit,
       inputsForThisJob,
-      nestedChildJobsForThisOne: {}, // Empty object as no nested child jobs found.
+      listOfChildJobsForThisJob,
+      nestedChildJobsForThisOne: [] as NestedJob[], // Empty object as no nested child jobs found.
     }
   }
   
@@ -46,9 +63,11 @@ const buildTotalJobHierarchy = (
   
   // Return the final hierarchical structure, including inputs and any nested child jobs.
   return {
-    jobTitle: currentJob.jobDescription,
-    jobId: currentJob.jobId,
+    jobTitle: jobDescription,
+    jobId,
+    itemUnit,
     inputsForThisJob,
+    listOfChildJobsForThisJob,
     nestedChildJobsForThisOne,
   };
 };
