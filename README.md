@@ -133,6 +133,15 @@ the future, I’m prioritizing overall logic and functionality within the time c
 Additionally, I included more comments in the code than I would typically have in a production application. This was intentional, 
 as I wanted to clearly demonstrate my thought process and approach for each step, making it easier for the reviewer to understand my implementation during the interview.
 
+Furthermore, while I was able to achieve a decent amount of Jest unit test coverage, the robustness of the tests could be improved if given more time. 
+Due to the tight timeframe to complete this take-home project, the test coverage isn't where I would ideally like it to be. 
+Additionally, the mock data could be better organized to be more DRY (Don't Repeat Yourself) and cleaner if time permitted.
+
+If I had more time, I would also focus on Dockerizing the application and deploying it to a cloud service like AWS or Azure. 
+This would include setting up a CI/CD pipeline using GitHub Actions to automate the integration of unit tests. 
+Such an approach would help ensure that any changes made through pull requests are thoroughly tested, reducing 
+the risk of regressions and maintaining the overall quality and reliability of the application.
+
 ### Screenshot of app running:
 
 ![https://github.com/jallen2034/cbc-take-home/blob/main/public/docs/app-screenshot.png?raw=true](public/docs/app-screenshot.png)
