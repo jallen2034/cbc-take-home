@@ -6,7 +6,7 @@ const buildTotalJobHierarchy = (
   jobIdToFind: number,
 ): NestedJob | null => {
   // Locate the primary job by matching the specified jobId, assuming it must exist in jobData.
-  const currentJob = jobData.find((job: JobItem) => {
+  const currentJob: JobItem | undefined = jobData.find((job: JobItem) => {
     const { jobId }: JobItem = job;
     return jobId === jobIdToFind;
   });
@@ -32,6 +32,7 @@ const buildTotalJobHierarchy = (
       jobTitle: currentJob.jobDescription,
       jobId: currentJob.jobId,
       inputsForThisJob,
+      listOfChildJobsForThisJob,
       nestedChildJobsForThisOne: [] as NestedJob[], // Empty object as no nested child jobs found.
     }
   }
@@ -49,6 +50,7 @@ const buildTotalJobHierarchy = (
     jobTitle: currentJob.jobDescription,
     jobId: currentJob.jobId,
     inputsForThisJob,
+    listOfChildJobsForThisJob,
     nestedChildJobsForThisOne,
   };
 };

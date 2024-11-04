@@ -14,6 +14,7 @@ export interface NestedJob {
   jobTitle: string;
   jobId: number;
   inputsForThisJob: JobItem[];
+  listOfChildJobsForThisJob: JobItem[];
   nestedChildJobsForThisOne?: NestedJob[];
 }
 

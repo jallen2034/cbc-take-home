@@ -6,14 +6,14 @@ import {
   expectedResultMortarTraceJob,
   expectedResultWaterproofingWallsJob,
   testJobDataInput,
-} from "@/app/__test__/test-data-module";
+} from "@/app/__test__/app-helpers/test-data-module";
 import {
   CONCRETE_MIXING_OF_400L_ACTIVE_JOB_ID,
   CONCRETE_MIXING_OF_400L_IDLE_JOB_ID,
   HOT_WATER_RESERVOIR_INSTALLATION_JOB_ID,
   MORTAR_TRACE_JOB_ID,
   WATERPROOFING_WALLS_JOB_ID,
-} from "../../../util/constants";
+} from "../../../../util/constants";
 import { NestedJob } from "@/app/types";
 
 describe("buildTotalJobHierarchy", (): void => {

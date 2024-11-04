@@ -227,6 +227,7 @@ const testJobDataInput: JobItem[] = [
 const concreteMixingJobActiveJson: NestedJob = {
   jobTitle: "CONCRETE MIXING OF 400 L - ACTIVE",
   jobId: 830,
+  listOfChildJobsForThisJob: [],
   inputsForThisJob: [
     {
       jobId: 830,
@@ -273,12 +274,13 @@ const concreteMixingJobActiveJson: NestedJob = {
       pricePerUnit: "0.86",
     },
   ],
-  nestedChildJobsForThisOne: {},
-}
+  nestedChildJobsForThisOne: [],
+};
 
-const concreteMixingJobIdleJson: NestedJob = {
+const concreteMixingJobIdleJsonIdle: NestedJob = {
   jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
   jobId: 831,
+  listOfChildJobsForThisJob: [],
   inputsForThisJob: [
     {
       jobId: 831,
@@ -303,13 +305,37 @@ const concreteMixingJobIdleJson: NestedJob = {
       pricePerUnit: "0.04",
     },
   ],
-  nestedChildJobsForThisOne: {},
-}
+  nestedChildJobsForThisOne: [],
+};
 
 // Expected potential results.
 const mortarTraceJobJson: NestedJob = {
   jobTitle: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
   jobId: 283,
+  listOfChildJobsForThisJob: [
+    {
+      jobId: 283,
+      jobDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+      jobUnit: "M3",
+      jobType: "JOB",
+      itemId: 830,
+      itemDescription: "CONCRETE MIXING OF 400 L - ACTIVE",
+      itemUnit: "H/P",
+      jobItemQuantity: "1.1900000",
+      pricePerUnit: "",
+    },
+    {
+      jobId: 283,
+      jobDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+      jobUnit: "M3",
+      jobType: "JOB",
+      itemId: 831,
+      itemDescription: "CONCRETE MIXING OF 400 L - IDLE",
+      itemUnit: "H/I",
+      jobItemQuantity: "3.9100000",
+      pricePerUnit: "",
+    },
+  ],
   inputsForThisJob: [
     {
       jobId: 283,
@@ -358,13 +384,26 @@ const mortarTraceJobJson: NestedJob = {
   ],
   nestedChildJobsForThisOne: [
     concreteMixingJobActiveJson,
-    concreteMixingJobIdleJson,
+    concreteMixingJobIdleJsonIdle,
   ],
 };
 
 const expectedResultWaterproofingWallsJob: NestedJob = {
   jobTitle: "WATERPROOFING WALLS",
   jobId: 537,
+  listOfChildJobsForThisJob: [
+    {
+      jobId: 537,
+      jobDescription: "WATERPROOFING WALLS",
+      jobUnit: "M2",
+      jobType: "JOB",
+      itemId: 283,
+      itemDescription: "MORTAR TRACE (CEMENT, LIME AND MEDIUM SAND)",
+      itemUnit: "M3",
+      jobItemQuantity: "0.0250000",
+      pricePerUnit: "",
+    },
+  ],
   inputsForThisJob: [
     {
       jobId: 537,
@@ -406,6 +445,7 @@ const expectedResultWaterproofingWallsJob: NestedJob = {
 const expectedResultHotWaterReservoirInstallationJob: NestedJob = {
   jobTitle: "HOT WATER RESERVOIR INSTALLATION",
   jobId: 523,
+  listOfChildJobsForThisJob: [],
   inputsForThisJob: [
     {
       jobId: 523,
@@ -452,12 +492,13 @@ const expectedResultHotWaterReservoirInstallationJob: NestedJob = {
       pricePerUnit: "20.33",
     },
   ],
-  nestedChildJobsForThisOne: {},
+  nestedChildJobsForThisOne: [],
 };
 
 const expectedResultConcreteMixingOf400LIdleJob: NestedJob = {
   jobTitle: "CONCRETE MIXING OF 400 L - IDLE",
   jobId: 831,
+  listOfChildJobsForThisJob: [],
   inputsForThisJob: [
     {
       jobId: 831,
@@ -482,10 +523,11 @@ const expectedResultConcreteMixingOf400LIdleJob: NestedJob = {
       pricePerUnit: "0.04",
     },
   ],
-  nestedChildJobsForThisOne: {},
+  nestedChildJobsForThisOne: [],
 };
 
-const expectedResultConcreteMixingOf400LActiveJob: NestedJob = concreteMixingJobActiveJson
+const expectedResultConcreteMixingOf400LActiveJob: NestedJob =
+  concreteMixingJobActiveJson;
 
 const expectedResultMortarTraceJob: NestedJob = mortarTraceJobJson;
 
@@ -495,5 +537,6 @@ export {
   expectedResultWaterproofingWallsJob,
   expectedResultHotWaterReservoirInstallationJob,
   expectedResultConcreteMixingOf400LIdleJob,
-  expectedResultConcreteMixingOf400LActiveJob
+  expectedResultConcreteMixingOf400LActiveJob,
+  concreteMixingJobActiveJson,
 };
